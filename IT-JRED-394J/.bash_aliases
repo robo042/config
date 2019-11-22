@@ -29,3 +29,6 @@ alias vdir='ls --color=auto --format=long'
 alias ll='ls -l'                              # long list
 alias la='ls -A'                              # all but . and ..
 alias l='ls -CF'
+
+# From .bash_functions
+alias cd=cd_func
