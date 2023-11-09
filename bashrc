@@ -16,8 +16,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=10000
+HISTFILESIZE=20000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -45,8 +45,8 @@ esac
 # should be on the output of commands, not on the prompt
 #force_color_prompt=yes
 
-if [ -n "$force_color_prompt" ];then
-    if [ -x /usr/bin/tput ]&&tput setaf 1>&/dev/null;then
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1>&/dev/null; then
 	    # We have color support; assume it's compliant with Ecma-48
 	    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
 	    # a case would tend to support setf rather than setaf.)
@@ -75,20 +75,20 @@ xterm*|rxvt*)
 esac
 
 # colored GCC warnings and errors
-#export GCC_COLORS=\
-#'error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export GCC_COLORS=\
+    'error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # Alias definitions.
 # Put all aliases into ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
-if [ -f ~/.bash_aliases ];then
+if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
 # Function definitions.
 # Put all functions into ~/.bash_functions, instead of adding them here
 # directly.
-if [ -f ~/.bash_functions ];then
+if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
 fi
 
@@ -104,4 +104,14 @@ if ! shopt -oq posix; then
 fi
 
 # no emacs
-set -o vi
+EDITOR='vi'
+VISUAL='vi'
+
+# hardcore no emacs
+#set -o vi
+
+## more different stuff can be added below ##
+
+
+
+
