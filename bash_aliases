@@ -2,8 +2,9 @@
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors \
-       && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || {
+        eval "$(dircolors -b)"
+    }
     alias ls='ls -hF --color=auto'
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'
@@ -19,11 +20,12 @@ alias l='ls -CF'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
-aler1='notify-send --urgency=low -i'
-aler2='"$([ $? = 0 ] && echo terminal || echo error)"'
-aler3='"$(history|tail -n1|sed'
-aler4='-e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-alias alert="$aler1 $aler2 $aler3 $aler4"
+alert_var='notify-send --urgency=low -i'
+alert_var+=' "$([ $? = 0 ] && echo terminal || echo error)"'
+alert_var+=' "$(history|tail -n1|sed'
+alert_var+=' -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias alert="$alert_var"
+unset alert_var
 
 # even more
 alias cls='clear'
