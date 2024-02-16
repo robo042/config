@@ -12,7 +12,6 @@ esac
 
 
 # don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
 HISTCONTROL=ignoreboth
 
 
@@ -20,7 +19,7 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+# for setting history length 
 HISTSIZE=10000
 HISTFILESIZE=20000
 
@@ -35,7 +34,7 @@ shopt -s checkwinsize
 shopt -s globstar
 
 
-# make less more friendly for non-text input files, see lesspipe(1)
+# make less more friendly for non-text input files
 [[ -x /usr/bin/lesspipe ]] && eval "$(SHELL=/bin/sh lesspipe)"
 
 
