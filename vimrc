@@ -11,6 +11,7 @@ syntax on
 set tabstop=4 shiftwidth=4 expandtab
 
 " indicate lines longer than 80 characters
+" the temporary off switch for this is `:match`
 set textwidth=0
 match Error /\%>80c/
 highlight Error ctermbg=Red ctermfg=Yellow
