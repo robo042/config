@@ -1,13 +1,10 @@
 # ~/.bash_functions
 
 # function cd_func
-# This function defines a 'cd' replacement function capable of keeping,
-# displaying and accessing history of visited directories, up to 10 entries.
-# To use it, uncomment it, source this file and try 'cd --'.
-# adapted from acd_func 1.0.5, 10-nov-2004
-# Petar Marinov, http:/geocities.com/h2428, this is public domain
-
 cd_func(){
+    # This function defines a 'cd' replacement function capable of keeping,
+    # displaying and accessing history of visited directories, up to 10
+    # entries. To use it, source this file and try 'cd --'.
     local x2 the_new_dir adir index
     local -i cnt
     [[ $1 ==  "--" ]]&&{
@@ -38,5 +35,6 @@ cd_func(){
         }
     done
     return 0
+    # there's a corresponding cd_func alias in ~/.bash_aliases
 }
 
