@@ -19,11 +19,15 @@ if [[ ${BASH_SOURCE[0]} == ${0} ]]; then
     public_key_file="${private_key_file}.pub"
 
     # Check if key exists
-    [[ -f $public_key_file ]] && key_contents="$(cat $public_key_file)"
+    [[ -f $public_key_file ]] && key_contents="$(< "$public_key_file")"
 
     # Generate key if needed
     [[ -z ${key_contents+x} ]] && {
-        ssh-keygen -t $algorithm -N '' -f "$private_key_file" <<< n ;
+        if [[ -f $private_key_file ]]; then
+            ssh-keygen -y -f "$private_key_file" > "$public_key_file"
+        else
+            ssh-keygen -t $algorithm -N '' -f "$private_key_file" <<< n
+        fi
         key_contents="$(cat $public_key_file)"
     }
     
