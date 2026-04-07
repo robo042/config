@@ -38,7 +38,8 @@ autocmd InsertChange * call InsertStatuslineColor(v:insertmode)
 autocmd InsertLeave * call NormalStatuslineColor()
 
 " little trick that uses the terminal's bracketed paste mode to automatically
-" set/unset Vim's paste mode when you paste.
+" set/unset Vim's paste mode when you paste. 
+" (obsolete in modern versions of vim)
 let &t_SI.="\<Esc>[?2004h"
 let &t_EI.="\<Esc>[?2004l"
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
